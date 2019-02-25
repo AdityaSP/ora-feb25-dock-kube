@@ -25,7 +25,7 @@ Requires Virutalbox - If it is already installed then there is no need for a new
 ------------------------------------------------------------------
 ### 1. minikube
 
-          download minikube-windows-amd64 from https://github.com/kubernetes/minikube/releases/tag/v0.25.0
+          download "minikube-windows-amd64" from https://github.com/kubernetes/minikube/releases/tag/v0.25.0
 
           2. rename the exe to minikube.exe
 
