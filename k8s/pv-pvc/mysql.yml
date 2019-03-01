@@ -6,8 +6,6 @@ spec:
   selector:
     matchLabels:
       app: mysql
-  strategy:
-    type: Recreate
   template:
     metadata:
       labels:
@@ -17,7 +15,6 @@ spec:
       - image: mysql:5.7
         name: mysql
         env:
-          # Use secret in real usage
         - name: MYSQL_ROOT_PASSWORD
           value: password
         ports:

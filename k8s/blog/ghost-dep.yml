@@ -23,7 +23,10 @@ spec:
         - name: database__connection__user
           value: root
         - name: database__connection__password
-          value: welcome
+          valueFrom:
+            secretKeyRef:
+              name: blog-secrets
+              key: db-password
         - name: database__connection__database
           value: ghost
 

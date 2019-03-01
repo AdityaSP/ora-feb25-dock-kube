@@ -5,13 +5,13 @@ metadata:
 spec:
   template:
     metadata:
-      name: countdown
+      name: ping
     spec:
       containers:
       - name: counter
         image: nginx:alpine
         command: 
-         - "bin/sh"
-         - "-c"
-         - "date"
+         - "ping"
+         - "-c20"
+         - "google.com"
       restartPolicy: Never
