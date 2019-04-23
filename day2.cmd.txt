@@ -1,0 +1,250 @@
+    1  export PS1='\n$PWD> '
+    2  docker container ls | grep -v k8s
+    3  docker container prune
+    4  ls
+    5  cd /c/Users/Dell\ lap/docker-workshop/apr22/
+    6  ls
+    7  cd al-ap/
+    8  ls
+    9  ls
+   10  vi Dockerfile 
+   11  cat Dockerfile 
+   12  docker image ls al-ap
+   13  docker image ls nginx
+   14  docker image pull nginx:1
+   15  docker image ls nginx
+   16  docker image ls al-ap
+   17  docker image ls nginx
+   18  docker image ls al-ap
+   19  docker image tag al-ap al-ap:1
+   20  docker image ls al-ap
+   21  docker image build -t al-ap -t al-ap:2 .
+   22  cat Dockerfile 
+   23  docker image ls al-ap
+   24  docker image history al-ap:1
+   25  docker image history al-ap:2
+   26  docker image prune
+   27  docker container run -d -p9090:80 al-ap:2
+   28  docker container ls | grep -v k8s
+   29  docker container inspect b3306b9568f5 | grep -i ipaddress
+   30  curl 172.17.0.14:80
+   31  curl localhost:9090
+   32  cd ..
+   33  mkdir al-ap-code
+   34  cd al-ap-code
+   35  cat > mypage.html
+   36  cat mypage.html 
+   37  vi Dockerfile
+   38  ls
+   39  cat Dockerfile 
+   40  cat mypage.html 
+   41  docker image build -t al-ap-code:1 -t al-ap-code .
+   42  docker image ls al-ap*
+   43  cd ../..
+   44  ls
+   45  cd -
+   46  docker image build -t al-ap-code:1 -t al-ap-code
+   47  vi Dockerfile 
+   48  docker image build -t al-ap-code:1 -t al-ap-code .
+   49  vi Dockerfile 
+   50  docker image build -t al-ap-code:1 -t al-ap-code .
+   51  cd ..
+   52  ls
+   53  cd al-ap
+   54  ls
+   55  docker container ls | grep -v k8s
+   56  docker container exec -it b3306b9568f5 sh
+   57  vi Dockerfile 
+   58  cd ..
+   59  ls
+   60  mkdir pinger
+   61  cd pinger/
+   62  ls
+   63  vi Dockerfile
+   64  cat Dockerfile 
+   65  docker image build -t pinger .
+   66  docker container run --rm pinger
+   67  docker container run --rm pinger ping -c4 yahoo.com
+   68  vi Dockerfile 
+   69  vi Dockerfile 
+   70  docker image build -t pinger .
+   71  docker container run --rm pinger
+   72  docker container run --rm pinger yahoo.com
+   73  docker container run --rm pinger oracle.com
+   74  cat Dockerfile 
+   75  cd ..
+   76  cd al-ap
+   77  cat Dockerfile 
+   78  vi docker-entrypoint.sh
+   79  vi docker-entrypoint.sh 
+   80  cat docker-entrypoint.sh 
+   81  vi Dockerfile 
+   82  vi myscript.sh
+   83  chmod +x myscript.sh 
+   84  ./myscript.sh echo how are you
+   85  vi myscript.sh
+   86  ./myscript.sh echo how are you
+   87  vi Dockerfile 
+   88  vi docker-entrypoint.sh 
+   89  vi Dockerfile 
+   90  cat Dockerfile 
+   91  cat docker-entrypoint.sh 
+   92  vi Dockerfile 
+   93  cat Dockerfile 
+   94  cat docker-entrypoint.sh
+   95  docker image build -t al-ap -t al-ap:3 .
+   96  docker container run -d -p 9000:9090 al-ap
+   97  docker container ls | grep -v k8s
+   98  ls
+   99  ls
+  100  cat docker-entrypoint.sh 
+  101  docker container run --rm alpine env
+  102  docker container run --rm -e MYVAR=hello alpine env
+  103  vi docker-entrypoint.sh 
+  104  vi Dockerfile 
+  105  cat docker-entrypoint.sh 
+  106  vi Dockerfile 
+  107  cat Dockerfile 
+  108  env
+  109  docker image build -t al-ap -t al-ap:4 .
+  110  docker container ls | grep -v k8s
+  111  docker container stop 9f04d3fbd577 b3306b9568f5
+  112  docker container prune
+  113  docker container ls | grep -v k8s
+  114  docker container ls -a| grep -v k8s
+  115  docker container run  -e MYVAR=hello alpine env
+  116  docker container ls | grep -v k8s
+  117  docker container ls -a| grep -v k8s
+  118  docker container rm 9ac784bc0ca1
+  119* 
+  120  docker container ls | grep -v k8s
+  121  docker container ls -a| grep -v k8s
+  122  cat docker-entrypoint.sh 
+  123* 
+  124  docker container exec d0b19bd grep Listen /etc/apache2/httpd.conf
+  125  docker container exec d0b19bd env
+  126  docker container run --rm -e MYVAR=hello -e TWO=2alpine env
+  127  docker container run --rm -e MYVAR=hello -e TWO=2 alpine env
+  128  docker container ls -a| grep -v k8s
+  129  docker container logs d0b19bda23f2
+  130  cat Dockerfile 
+  131  cat docker-entrypoint.sh 
+  132  docker container exec d0b19bda23f2 env
+  133  docker image history al-ap
+  134  cd
+  135  docker image ls mysql
+  136  docker image rm e47e309f72c8
+  137  docker image ls mysql
+  138  docker container ls -a| grep -v k8s
+  139  docker container rm -f d0b19bda23f2
+  140  docker container prune
+  141  docker container ls -a| grep -v k8s
+  142  docker image ls mysql
+  143  docker container run -d mysql:5.7
+  144  docker container ls -a| grep -v k8s
+  145  docker container logs 30c45576954d
+  146  #docker container run -d -e MYSQL_ROOT_PASSWORD=welcome mysql:5.7
+  147  docker container run --help | grep env
+  148  docker container run -d -e MYSQL_ROOT_PASSWORD=welcome mysql:5.7
+  149  docker container ls -a| grep -v k8s
+  150* 
+  151  docker container ls -a| grep -v k8s
+  152  docker container exec -it 1bed3d7174d9 bash
+  153  docker container exec -it 1bed3d7174d9 mysql -uroot -pwelcome
+  154  docker container run -d -e MYSQL_ROOT_PASSWORD=welcome -p8888:3306 mysql:5.7
+  155  docker network ls
+  156  docker network prune
+  157  docker network ls
+  158  docker volume prune
+  159  docker volume ls
+  160  docker volume ls
+  161  docker volume prune
+  162  docker container ls | grep -v k8s
+  163  docker container ls -a
+  164  docker container ls -a| grep -v k8s
+  165  docker container rm -f 8c407d6d9c79 1bed3d7174d9 30c45576954d
+  166  docker container run -d nginx
+  167  docker container exec -it 06b5d5256b1 bash
+  168  docker container rm -f 06b5d5256b1
+  169  docker container run -d -v /var/log/nginx nginx
+  170  docker container exec -it 1319f62 sh
+  171  docker container inspect 1319f622
+  172  docker container run -d -v /var/log/nginx nginx
+  173  docker container inspect 07bf193
+  174  docker container rm -f 1319f622
+  175  cd -
+  176  ls
+  177  docker container run -d -e MYSQL_ROOT_PASSWORD=welcome mysql:5.7
+  178  docker container inspect 3e345668
+  179  ls
+  180  docker container ls | grep -v k8s
+  181  docker container rm -f 3e345668ee22 07bf19364b35
+  182  docker container prune
+  183  docker container run -d -e MYSQL_ROOT_PASSWORD=welcome -v proj_db:/var/lib/mysql mysql:5.7
+  184  docker container inspect 342affc5
+  185  cd
+  186  docker container exec -it 342affc5 mysql -uroot -pwelcome
+  187  docker container rm -f 342affc5 
+  188  docker container run -d -e MYSQL_ROOT_PASSWORD=welcome -v proj_db:/var/lib/mysql mysql:5.7
+  189  docker container exec -it 543d9d mysql -uroot -pwelcome
+  190  history | tail -n 20
+  191  #create database newprojectdb
+  192  #show databases
+  193  docker volume ls
+  194  docker volume inspect proj_db
+  195  docker volume prune
+  196  docker volume ls
+  197  docker container run -d -v /var/log/nginx nginx
+  198  docker volume ls
+  199  docker volume inspect c41baf00752ade7213a2a06841a86d4c653bb608427bd66d259960ff7754be3a
+  200* docker container run -d  nginx
+  201  cd /tmp/nginxlogs
+  202  ls
+  203  docker container inpsect 19eac20e
+  204  docker container inspect 19eac20e
+  205  cd
+  206  docker container ls | grep -v k8s
+  207  docker container rm -f 19eac20ecec9 c8777586e5ef 543d9d9d69e6
+  208  docker container prune
+  209  docker container run -d --name c1 al-ap
+  210  docker container ls | grep -v k8s
+  211  docker container run -d --name c2 al-ap
+  212  docker container run -d --name c3 al-ap
+  213  docker container inspect c1 | grep -i ipaddress
+  214  docker container inspect c2 | grep -i ipaddress
+  215  docker container inspect c3 | grep -i ipaddress
+  216  docker container exec c1 ping -c2 "172.17.0.15"
+  217  docker container inspect c1
+  218  docker network ls
+  219  docker network inspect bridge
+  220  docker network ls
+  221  docker network create c1-c2-net
+  222* 
+  223  #docker network create c1-c2-net
+  224  docker network connect c1-c2-net c1
+  225  docker container inspect c1 | grep -i ipaddress
+  226  docker network disconnect bridge c1
+  227  docker container inspect c1 | grep -i ipaddress
+  228* 
+  229  docker network connect c1-c2-net c2
+  230  docker network disconnect bridge c2
+  231  docker container inspect c2 | grep -i ipaddress
+  232  #docker network create c2-c3-net
+  233  docker network create c2-c3-net
+  234  docker network disconnect bridge c3
+  235  docker network connect c2-c3-net c3
+  236  docker container inspect c3 | grep -i ipaddress
+  237  docker network connect c2-c3-net c2
+  238  docker container inspect c2 | grep -i ipaddress
+  239  docker container inspect c1 | grep -i ipaddress
+  240  docker container inspect c3 | grep -i ipaddress
+  241  docker container exec c3 ping -c2 "172.19.0.3"
+  242  docker container exec c1 ping -c2 "172.18.0.3"
+  243  docker container exec c1 ping c2
+  244  docker container exec c3 ping c2
+  245  history | tail -n 20
+  246  history | tail -n 25
+  247  cd -
+  248  cd -
+  249  cd /c/Users/Dell\ lap/docker-workshop/apr22/
+  250  history > day2.cmd.txt
